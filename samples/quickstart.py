@@ -29,7 +29,8 @@ def run_quickstart():
     # [END language_python_migration_client]
 
     # Detects the sentiment of the text
-    text = u"Jogging is not very fun."
+    text = input().strip()
+    # text = u"全体としては面白かったです。ただ、あんなに強かったラスボスを倒す流れが謎すぎました。個人的に映画はラスト重視なので、この終わり方はちょっとなぁ。"
     document = language_v1.types.Document(
         content=text,
         type='PLAIN_TEXT',
@@ -40,8 +41,10 @@ def run_quickstart():
     )
     sentiment = response.document_sentiment
 
+    print(response.sentences)
+
     print("Text: {}".format(text))
-    print("Sentiment: {}, {}".format(sentiment.score, sentiment.magnitude))
+    print("Sentiment: \n sentiment.score:{}, \n sentiment.magnitude:{}".format(sentiment.score, sentiment.magnitude))
     # [END language_quickstart]
 
 
